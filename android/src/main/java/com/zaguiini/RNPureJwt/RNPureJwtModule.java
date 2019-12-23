@@ -96,7 +96,7 @@ public class RNPureJwtModule extends ReactContextBaseJavaModule {
 
     @ReactMethod
     public void decode(String token, String secret, ReadableMap options, Promise callback) {
-        JwtParser parser = Jwts.parser().setSigningKey(this.toBase64(secret));
+        JwtParser parser = Jwts.parser().setSigningKey(secret);
 
         Boolean skipValidation = false;
 
