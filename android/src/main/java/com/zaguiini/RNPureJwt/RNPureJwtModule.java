@@ -158,7 +158,7 @@ public class RNPureJwtModule extends ReactContextBaseJavaModule {
     public void sign(ReadableMap claims, String secret, ReadableMap options, Promise callback) {
         String algorithm = options.hasKey("alg") ? options.getString("alg") : "HS256";
         JwtBuilder constructedToken = Jwts.builder()
-                .signWith(SignatureAlgorithm.forName(algorithm), this.toBase64(secret))
+                .signWith(SignatureAlgorithm.forName(algorithm), secret)
                 .setHeaderParam("alg", algorithm)
                 .setHeaderParam("typ", "JWT");
 
